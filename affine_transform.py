@@ -4,7 +4,8 @@ import cv2
 
 
 def affine_transform(img):
-    pto_o = np.float32([[33, 58], [208, 61], [56, 250], [185, 250]])
+    # pto_o = np.float32([[33, 58], [208, 61], [56, 250], [185, 250]])
+    pto_o = np.float32([[33, 58], [208, 61], [56, 250], [185, 244]])
     pts_d = np.float32([[0, 0], [240, 0], [0, 320], [240, 320]])
     M = cv2.getPerspectiveTransform(pto_o, pts_d)
 

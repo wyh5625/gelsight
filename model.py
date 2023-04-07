@@ -6,12 +6,21 @@ class MLPEncoder(nn.Module):
         super().__init__()
 
         ### Linear section
+        # self.encoder_lin = nn.Sequential(
+        #     nn.Linear(5, 128),
+        #     nn.ReLU(True),
+        #     nn.Linear(128, 128),
+        #     nn.ReLU(True),
+        #     nn.Linear(128, encoded_space_dim)
+        # )
         self.encoder_lin = nn.Sequential(
-            nn.Linear(5, 128),
-            nn.ReLU(True),
-            nn.Linear(128, 128),
-            nn.ReLU(True),
-            nn.Linear(128, encoded_space_dim)
+            nn.Linear(5, 32),
+            nn.Tanh(),
+            nn.Linear(32, 32),
+            nn.Tanh(),
+            nn.Linear(32, 32),
+            nn.Tanh(),
+            nn.Linear(32, encoded_space_dim)
         )
 
     def forward(self, x):
